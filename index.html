@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linha de Passe ⚽</title>
+  <meta name="description" content="Site sobre futebol com formulário interativo e mídia HTML5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="header-inner">
+
+      <div class="header-brand">
+        <span class="header-icon">⚽</span>
+        <div>
+          <h1>Linha de Passe</h1>
+          <p class="header-tagline">Conectando você ao futebol</p>
+        </div>
+      </div>
+
+      <!-- Hamburguer menu CSS-only (checkbox hack) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="#historia" onclick="document.getElementById('nav-toggle').checked=false">História</a>
+        <a href="#momentos" onclick="document.getElementById('nav-toggle').checked=false">Momentos</a>
+        <a href="#enquete"  onclick="document.getElementById('nav-toggle').checked=false">Enquete</a>
+      </nav>
+
+      <!-- Botão dark/light mode -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">
+        <span class="theme-icon theme-icon--sun">☀️</span>
+        <span class="theme-icon theme-icon--moon">🌙</span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="hero" aria-hidden="true">
+    <div class="hero-text">
+      <span class="hero-label">O jogo mais bonito do mundo</span>
+      <strong>FUTEBOL É<br>PAIXÃO</strong>
+    </div>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main>
+
+    <!-- Sidebar: história -->
+    <aside class="sidebar" id="historia" aria-label="História do futebol">
+      <div class="card">
+        <h2>História do Futebol</h2>
+        <p>
+          O futebol é o esporte mais popular do mundo. Com origem na Inglaterra,
+          ele se espalhou rapidamente por diversos países, tornando-se uma paixão global.
+        </p>
+        <div class="stat-grid">
+          <div class="stat">
+            <span class="stat-num">+270</span>
+            <span class="stat-label">Milhões de jogadores</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">211</span>
+            <span class="stat-label">Países na FIFA</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Área de conteúdo -->
+    <div class="content-area">
+
+      <!-- Vídeo -->
+      <section class="card" id="momentos">
+        <div class="section-header">
+          <h2>Melhores Momentos</h2>
+          <span class="badge">▶ Assistir</span>
+        </div>
+        <div class="media-wrapper">
+          <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+          </video>
+        </div>
+        <p class="media-caption">Assista alguns dos melhores gols do ano.</p>
+      </section>
+
+      <!-- Áudio -->
+      <section class="card">
+        <div class="section-header">
+          <h2>Hino do Brasil</h2>
+          <span class="badge badge--gold">♪ Ouça</span>
+        </div>
+        <div class="audio-wrapper">
+          <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+          </audio>
+        </div>
+        <p class="media-caption">Ouça o hino nacional do Brasil.</p>
+      </section>
+
+      <!-- Formulário -->
+      <section class="card" id="enquete">
+        <div class="section-header">
+          <h2>Participe da Enquete</h2>
+          <span class="badge badge--blue">📋 Form</span>
+        </div>
+
+        <form onsubmit="return validarIdade()">
+
+          <fieldset>
+            <legend>Informações do Usuário</legend>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="exemplo@gmail.com"
+                  pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com)$"
+                  title="Digite um email válido (@gmail.com ou @hotmail.com)"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Preferências de Futebol</legend>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="time">Time favorito</label>
+                <input type="text" id="time" name="time" placeholder="Ex: Flamengo" required>
+              </div>
+              <div class="form-group">
+                <label for="idade">Idade</label>
+                <input
+                  type="number"
+                  id="idade"
+                  name="idade"
+                  min="10"
+                  max="100"
+                  required
+                  placeholder="Ex: 22"
+                  step="1"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="posicao">Posição favorita</label>
+              <select id="posicao" name="posicao" required>
+                <option value="">Selecione uma posição</option>
+                <option value="goleiro">Goleiro</option>
+                <option value="defesa">Defesa</option>
+                <option value="meio">Meio-campo</option>
+                <option value="ataque">Atacante</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Opinião</legend>
+            <div class="form-group">
+              <label for="comentario">O que você acha do futebol atual?</label>
+              <textarea id="comentario" name="comentario" rows="4" placeholder="Compartilhe sua opinião..." required></textarea>
+            </div>
+          </fieldset>
+
+          <div class="form-footer">
+            <button type="submit">Enviar participação →</button>
+          </div>
+
+        </form>
+      </section>
+
+    </div><!-- /content-area -->
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">⚽ Linha de Passe</span>
+      <p>&copy; 2026 — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Validação de idade ── */
+    function validarIdade() {
+      const idade = parseInt(document.getElementById("idade").value, 10);
+      if (isNaN(idade) || idade < 10 || idade > 100) {
+        alert("Idade deve estar entre 10 e 100 anos!");
+        return false;
+      }
+      return true;
+    }
+
+    /* ── Toggle dark/light mode ── */
+    const btn = document.getElementById("theme-toggle");
+    const html = document.documentElement;
+
+    // Lê preferência salva ou usa preferência do sistema
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = saved || (prefersDark ? "dark" : "light");
+    html.setAttribute("data-theme", initialTheme);
+
+    btn.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
+
+</body>
+</html>
