@@ -722,20 +722,6 @@ html:not([data-theme]) .theme-icon--moon { display: block; }
 }
 
 /* ── DARK MODE — variáveis ────────────────────────────────── */
-/* Ativado por data-theme="dark" (botão) OU prefers-color-scheme como fallback */
-
-:root[data-theme="dark"],
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) } {
-  --off-white:  #121212;
-  --white:      #1e1e1e;
-  --gray-100:   #252525;
-  --gray-200:   #333;
-  --gray-400:   #888;
-  --gray-700:   #ccc;
-  --black:      #f0f0ec;
-}
-
-/* Seletor separado para garantir compatibilidade total */
 [data-theme="dark"] {
   --off-white:  #121212;
   --white:      #1e1e1e;
