@@ -1,0 +1,11 @@
+main {
+  max-width: 1240px;
+  margin: auto;
+  padding: var(--sp-lg);
+  display: grid;
+  gap: var(--sp-lg);
+}
+
+@media (min-width: 768px) {
+  main { grid-template-columns: 260px 1fr; }
+}

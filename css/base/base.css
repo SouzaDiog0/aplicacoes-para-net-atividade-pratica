@@ -1,0 +1,11 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  background-color: var(--off-white);
+  color: var(--gray-700);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+}

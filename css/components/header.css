@@ -1,0 +1,30 @@
+header {
+  background: var(--green-900);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1240px;
+  margin: auto;
+  padding: var(--sp-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-nav {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+}
+
+.nav-toggle:checked ~ .header-nav {
+  display: flex;
+}
+
+.nav-hamburger {
+  cursor: pointer;
+}

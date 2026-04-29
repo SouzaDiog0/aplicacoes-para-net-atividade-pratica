@@ -1,0 +1,8 @@
+.section-header {
+  border-bottom: 3px solid var(--gold);
+}
+
+.badge {
+  background: var(--green-700);
+  color: white;
+}

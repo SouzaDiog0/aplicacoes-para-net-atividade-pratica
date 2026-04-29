@@ -1,0 +1,12 @@
+form input,
+form select,
+form textarea {
+  padding: 10px;
+  border-radius: var(--r-sm);
+}
+
+form button {
+  background: var(--green-700);
+  color: white;
+  padding: 10px;
+}

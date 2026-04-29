@@ -1,0 +1,9 @@
+.sidebar .card h2 {
+  font-family: var(--font-display);
+  color: var(--green-700);
+}
+
+.stat {
+  background: var(--green-100);
+  padding: var(--sp-sm);
+}

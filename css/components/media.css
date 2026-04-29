@@ -1,0 +1,9 @@
+.media-wrapper {
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.audio-wrapper {
+  background: var(--gray-100);
+  padding: var(--sp-md);
+}

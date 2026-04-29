@@ -1,0 +1,9 @@
+.hero {
+  background: var(--green-900);
+  padding: var(--sp-xl);
+  color: white;
+}
+
+.hero strong {
+  font-size: var(--fs-hero);
+}
