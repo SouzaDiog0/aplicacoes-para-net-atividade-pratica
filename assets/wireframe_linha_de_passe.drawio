@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Wireframe Linha de Passe" id="0">
+    <mxGraphModel dx="3344" dy="2032" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rou8ESTjhMyeK7VMywM3-5" edge="1" parent="1" source="header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="579.9999999999995" y="-330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="header" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2b2b2b;fontColor=#ffffff;" value="Header (logo + nav + toggle)" vertex="1">
+          <mxGeometry height="110" width="1110" x="25" y="-180" as="geometry" />
+        </mxCell>
+        <mxCell id="rou8ESTjhMyeK7VMywM3-1" edge="1" parent="1" source="hero" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-2.2737367544323206e-13" y="175" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rou8ESTjhMyeK7VMywM3-2" edge="1" parent="1" source="hero" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1400" y="175" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hero" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3a3a3a;fontColor=#ffffff;" value="Hero Section (headline + video/image)" vertex="1">
+          <mxGeometry height="170" width="1100" x="30" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="sidebar" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2f2f2f;fontColor=#ffffff;" value="Sidebar (filtros / ranking)" vertex="1">
+          <mxGeometry height="710" width="250" x="40" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="content" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4a4a4a;fontColor=#ffffff;" value="Main Content (cards, video, forms)" vertex="1">
+          <mxGeometry height="710" width="810" x="310" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rou8ESTjhMyeK7VMywM3-3" edge="1" parent="1" source="footer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="579.9999999999995" y="1002.3529411764706" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="footer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f1f1f;fontColor=#ffffff;" value="Footer (brand + copyright)" vertex="1">
+          <mxGeometry height="70" width="1080" x="40" y="870" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
