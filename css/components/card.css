@@ -3,4 +3,12 @@
   border-radius: var(--r-lg);
   padding: var(--sp-lg);
   box-shadow: var(--shadow-card);
+  transition: box-shadow .25s;
+  border: 1px solid var(--gray-200);
+}
+
+.card:hover { box-shadow: var(--shadow-hover); }
+
+@media (min-width: 1024px) {
+  .card { padding: var(--sp-xl); }
 }

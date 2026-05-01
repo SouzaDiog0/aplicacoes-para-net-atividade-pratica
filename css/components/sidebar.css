@@ -1,9 +1,55 @@
 .sidebar .card h2 {
   font-family: var(--font-display);
+  font-size: var(--fs-xl);
   color: var(--green-700);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--sp-sm);
+  padding-bottom: var(--sp-xs);
+  border-bottom: 3px solid var(--gold);
+}
+
+.sidebar .card p {
+  color: var(--gray-700);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-md);
 }
 
 .stat {
   background: var(--green-100);
+  border-radius: var(--r-md);
   padding: var(--sp-sm);
+  text-align: center;
+  border-left: 3px solid var(--green-700);
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--green-700);
+  letter-spacing: 0.02em;
+}
+
+.stat-label {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--gray-400);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: calc(70px + var(--sp-md));
+  }
 }

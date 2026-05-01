@@ -1,9 +1,274 @@
+/* ── Wrappers base ── */
 .media-wrapper {
   border-radius: var(--r-md);
   overflow: hidden;
+  background: var(--black);
+  margin-bottom: var(--sp-sm);
 }
 
 .audio-wrapper {
   background: var(--gray-100);
+  border-radius: var(--r-md);
   padding: var(--sp-md);
+  margin-bottom: var(--sp-sm);
+}
+
+.audio-wrapper audio { width: 100%; }
+
+.media-caption {
+  font-size: var(--fs-sm);
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+/* ================================================================
+   CUSTOM VIDEO PLAYER
+   ================================================================ */
+
+.video-player {
+  position: relative;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.video-player:focus-visible {
+  box-shadow: 0 0 0 3px var(--gold);
+}
+
+.video-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Overlay (cobre o vídeo, responde a cliques) ── */
+.vp-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Ícone central de play (visível quando pausado) ── */
+.vp-center-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  border: 2px solid rgba(255, 255, 255, .55);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity .2s ease, transform .2s ease;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.vp-center-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px; /* compensa o triângulo de play */
+}
+
+.video-player.vp-paused .vp-center-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Remove margem extra no ícone de pausa (dois retângulos) */
+.video-player.vp-paused.vp-was-playing .vp-center-icon svg {
+  margin-left: 0;
+}
+
+/* ── Spinner de buffering ── */
+.vp-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.video-player.vp-buffering .vp-loading { display: flex; }
+
+.vp-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid rgba(255, 255, 255, .15);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: vp-spin .75s linear infinite;
+}
+
+@keyframes vp-spin { to { transform: rotate(360deg); } }
+
+/* ── Barra de controles ── */
+.vp-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 48px 10px 8px;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+
+.video-player.vp-paused .vp-controls,
+.video-player.vp-show-controls .vp-controls {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+
+/* ── Barra de progresso ── */
+.vp-progress-wrap {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 2px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: height .15s ease;
+}
+
+.vp-progress-wrap:hover { height: 6px; }
+
+.vp-buffered,
+.vp-played {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  border-radius: 2px;
+  width: 0%;
+  pointer-events: none;
+}
+
+.vp-buffered { background: rgba(255, 255, 255, .35); }
+.vp-played   { background: var(--gold); }
+
+.vp-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .15s ease;
+  pointer-events: none;
+}
+
+.vp-progress-wrap:hover .vp-thumb { transform: translate(-50%, -50%) scale(1); }
+
+/* ── Linha inferior de controles ── */
+.vp-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.vp-bar-left,
+.vp-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ── Botões ── */
+.vp-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 34px;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+
+.vp-btn:hover          { background: rgba(255, 255, 255, .15); }
+.vp-btn:focus-visible  { outline: 2px solid var(--gold); outline-offset: 1px; }
+.vp-btn svg            { width: 20px; height: 20px; }
+
+/* ── Controle de volume ── */
+.vp-volume-group {
+  display: flex;
+  align-items: center;
+}
+
+.vp-volume-slider {
+  width: 0;
+  opacity: 0;
+  transition: width .2s ease, opacity .2s ease;
+  accent-color: var(--gold);
+  cursor: pointer;
+  height: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.vp-volume-group:hover .vp-volume-slider,
+.vp-volume-group:focus-within .vp-volume-slider {
+  width: 72px;
+  opacity: 1;
+}
+
+/* ── Tempo ── */
+.vp-time {
+  color: rgba(255, 255, 255, .88);
+  font-size: 12px;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  user-select: none;
+  padding: 0 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Seletor de velocidade ── */
+.vp-speed {
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #fff;
+  font-size: 12px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background .15s, border-color .15s;
+}
+
+.vp-speed:hover        { background: rgba(255, 255, 255, .2); }
+.vp-speed:focus        { outline: none; border-color: var(--gold); }
+.vp-speed option       { background: #1a1a1a; color: #fff; }
+
+/* ── Dark mode: ajuste do audio-wrapper ── */
+[data-theme="dark"] .audio-wrapper { background: #1a1a1a; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .audio-wrapper { background: #1a1a1a; }
 }

@@ -3,28 +3,142 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,.3);
 }
 
 .header-inner {
   max-width: 1240px;
-  margin: auto;
-  padding: var(--sp-sm);
+  margin-inline: auto;
+  padding: var(--sp-sm) var(--sp-md);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-sm);
   flex-wrap: wrap;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.header-icon {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.header-tagline {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── Hamburguer (CSS-only checkbox hack) ── */
+.nav-toggle { display: none; }
+
+.nav-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--r-sm);
+  transition: background .2s;
+}
+
+.nav-hamburger:hover { background: rgba(255,255,255,.08); }
+
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: transform .3s, opacity .2s;
+}
+
+.nav-toggle:checked ~ .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle:checked ~ .nav-hamburger span:nth-child(2) { opacity: 0; }
+.nav-toggle:checked ~ .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Nav — fechada por padrão no mobile */
 .header-nav {
   display: none;
   width: 100%;
   flex-direction: column;
+  gap: 0;
+  padding: var(--sp-xs) 0 var(--sp-sm);
+  order: 3;
 }
 
-.nav-toggle:checked ~ .header-nav {
-  display: flex;
+.nav-toggle:checked ~ .header-nav { display: flex; }
+
+.header-nav a {
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.25rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-left: 3px solid transparent;
+  transition: color .2s, border-color .2s, padding-left .2s;
 }
 
-.nav-hamburger {
-  cursor: pointer;
+.header-nav a:hover,
+.header-nav a:focus,
+.header-nav a.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  padding-left: 0.5rem;
+  outline: none;
+}
+
+/* ── Desktop: >= 768px ── */
+@media (min-width: 768px) {
+  .nav-hamburger { display: none; }
+
+  .header-nav {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    order: 0;
+    gap: var(--sp-lg);
+  }
+
+  .header-nav a {
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+    border-left: none;
+  }
+
+  .header-nav a:hover,
+  .header-nav a:focus,
+  .header-nav a.active {
+    padding-left: 0;
+    border-left: none;
+    border-bottom-color: var(--gold);
+    color: var(--gold);
+  }
+}
+
+@media (min-width: 1280px) {
+  .header-inner { padding-inline: 0; }
 }

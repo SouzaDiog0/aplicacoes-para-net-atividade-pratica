@@ -61,7 +61,7 @@
   <main>
 
     <!-- Sidebar - história -->
-    <aside class="sidebar" id="historia" aria-label="História do futebol">
+    <aside class="sidebar reveal" id="historia" aria-label="História do futebol">
       <div class="card">
         <h2>História do Futebol</h2>
         <p>
@@ -70,11 +70,11 @@
         </p>
         <div class="stat-grid">
           <div class="stat">
-            <span class="stat-num">+270</span>
+            <span class="stat-num" data-target="270" data-prefix="+">+270</span>
             <span class="stat-label">Milhões de jogadores</span>
           </div>
           <div class="stat">
-            <span class="stat-num">211</span>
+            <span class="stat-num" data-target="211" data-prefix="">211</span>
             <span class="stat-label">Países na FIFA</span>
           </div>
         </div>
@@ -85,22 +85,71 @@
     <div class="content-area">
 
       <!-- Vídeo -->
-      <section class="card" id="momentos">
+      <section class="card reveal" id="momentos">
         <div class="section-header">
           <h2>Melhores Momentos</h2>
           <span class="badge">▶ Assistir</span>
         </div>
         <div class="media-wrapper">
-          <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo.
-          </video>
+          <div class="video-player" id="video-player" tabindex="0">
+
+            <video id="vp-video" preload="metadata">
+              <source src="video.mp4" type="video/mp4">
+              Seu navegador não suporta vídeo.
+            </video>
+
+            <!-- Overlay clicável + ícone central de play -->
+            <div class="vp-overlay" id="vp-overlay">
+              <div class="vp-center-icon" id="vp-center-icon"></div>
+            </div>
+
+            <!-- Spinner de carregamento -->
+            <div class="vp-loading" aria-hidden="true">
+              <div class="vp-spinner"></div>
+            </div>
+
+            <!-- Barra de controles -->
+            <div class="vp-controls" id="vp-controls">
+
+              <div class="vp-progress-wrap" id="vp-progress" role="slider"
+                   aria-label="Progresso" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="vp-buffered" id="vp-buffered"></div>
+                <div class="vp-played"   id="vp-played"></div>
+                <div class="vp-thumb"    id="vp-thumb"></div>
+              </div>
+
+              <div class="vp-bar">
+                <div class="vp-bar-left">
+                  <button class="vp-btn" id="vp-play-btn"  aria-label="Reproduzir"></button>
+                  <div class="vp-volume-group">
+                    <button class="vp-btn" id="vp-mute-btn" aria-label="Silenciar"></button>
+                    <input type="range" class="vp-volume-slider" id="vp-volume"
+                           min="0" max="1" step="0.05" value="1" aria-label="Volume">
+                  </div>
+                  <span class="vp-time" id="vp-time">0:00 / 0:00</span>
+                </div>
+
+                <div class="vp-bar-right">
+                  <select class="vp-speed" id="vp-speed" aria-label="Velocidade">
+                    <option value="0.5">0.5×</option>
+                    <option value="0.75">0.75×</option>
+                    <option value="1" selected>1×</option>
+                    <option value="1.25">1.25×</option>
+                    <option value="1.5">1.5×</option>
+                    <option value="2">2×</option>
+                  </select>
+                  <button class="vp-btn" id="vp-fullscreen-btn" aria-label="Tela cheia"></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
         <p class="media-caption">Assista os melhores momentos de PSG x Bayern</p>
       </section>
 
       <!-- Áudio -->
-      <section class="card">
+      <section class="card reveal">
         <div class="section-header">
           <h2>Hino do Brasil</h2>
           <span class="badge badge--gold">♪ Ouça</span>
@@ -115,13 +164,13 @@
       </section>
 
       <!-- Formulário -->
-      <section class="card" id="enquete">
+      <section class="card reveal" id="enquete">
         <div class="section-header">
           <h2>Participe da Enquete</h2>
           <span class="badge badge--blue">📋 Form</span>
         </div>
 
-        <form onsubmit="return validarIdade()">
+        <form>
 
           <fieldset>
             <legend>Informações do Usuário</legend>

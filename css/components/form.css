@@ -1,12 +1,183 @@
-form input,
-form select,
-form textarea {
-  padding: 10px;
-  border-radius: var(--r-sm);
+form fieldset {
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--r-md);
+  padding: var(--sp-md);
+  margin-bottom: var(--sp-md);
+  background: var(--gray-100);
 }
 
-form button {
+form legend {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--green-700);
+  padding: 0 var(--sp-xs);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-sm);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+form label {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--gray-700);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  background: var(--white);
+  color: var(--black);
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239e9e93' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(45,158,80,.15);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--sp-sm);
+}
+
+form button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2.25rem;
   background: var(--green-700);
-  color: white;
-  padding: 10px;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background .2s, transform .12s, box-shadow .2s;
+  box-shadow: 0 4px 14px rgba(26,110,46,.25);
+}
+
+form button[type="submit"]:hover {
+  background: var(--green-500);
+  box-shadow: 0 6px 20px rgba(26,110,46,.35);
+}
+
+form button[type="submit"]:active { transform: scale(0.97); }
+
+@media (min-width: 480px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Estado de sucesso ── */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-2xl) var(--sp-lg);
+  gap: var(--sp-md);
+  min-height: 260px;
+}
+
+.form-success__icon {
+  font-size: 3.5rem;
+  animation: pop-in 0.5s cubic-bezier(.36,1.56,.64,1) both;
+}
+
+.form-success h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--green-700);
+  letter-spacing: 0.04em;
+  animation: fade-up 0.45s ease 0.15s both;
+}
+
+.form-success p {
+  color: var(--gray-700);
+  font-size: var(--fs-lg);
+  animation: fade-up 0.45s ease 0.28s both;
+}
+
+@keyframes pop-in {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { transform: translateY(14px); opacity: 0; }
+  to   { transform: none;             opacity: 1; }
+}
+
+/* ── Dark mode ── */
+[data-theme="dark"] form input[type="text"],
+[data-theme="dark"] form input[type="email"],
+[data-theme="dark"] form input[type="number"],
+[data-theme="dark"] form select,
+[data-theme="dark"] form textarea {
+  background: #2a2a2a;
+  color: #f0f0ec;
+  border-color: #444;
+}
+
+[data-theme="dark"] form input::placeholder,
+[data-theme="dark"] form textarea::placeholder { color: #666; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) form input[type="text"],
+  html:not([data-theme="light"]) form input[type="email"],
+  html:not([data-theme="light"]) form input[type="number"],
+  html:not([data-theme="light"]) form select,
+  html:not([data-theme="light"]) form textarea {
+    background: #2a2a2a;
+    color: #f0f0ec;
+    border-color: #444;
+  }
+
+  html:not([data-theme="light"]) form input::placeholder,
+  html:not([data-theme="light"]) form textarea::placeholder { color: #666; }
 }
