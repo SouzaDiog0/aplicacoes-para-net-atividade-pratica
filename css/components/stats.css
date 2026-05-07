@@ -1,0 +1,243 @@
+/* ================================================================
+   ESTATÍSTICAS DAS LIGAS
+   ================================================================ */
+.stats-section {
+  background: var(--gray-100);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: var(--sp-xl) var(--sp-md);
+}
+
+.stats-section__inner {
+  max-width: 1240px;
+  margin-inline: auto;
+}
+
+@media (min-width: 1280px) {
+  .stats-section { padding-inline: 0; }
+}
+
+.stats-section__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--green-900);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--sp-lg);
+  padding-bottom: var(--sp-sm);
+  border-bottom: 1px solid var(--gray-200);
+  position: relative;
+}
+
+.stats-section__title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--gold);
+}
+
+.stats-season {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--gray-400);
+  margin-left: 0.5rem;
+}
+
+/* ── Tabs ── */
+.league-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: var(--sp-lg);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.league-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--gray-400);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: color var(--t-base), border-color var(--t-base);
+  white-space: nowrap;
+}
+
+.league-flag {
+  width: 18px;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+  flex-shrink: 0;
+  opacity: .75;
+  transition: opacity var(--t-fast);
+}
+
+.league-tab:hover      { color: var(--green-700); }
+.league-tab:hover .league-flag { opacity: 1; }
+.league-tab--active    { color: var(--green-700); border-bottom-color: var(--green-700); }
+.league-tab--active .league-flag { opacity: 1; }
+.league-tab:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; border-radius: var(--r-sm); }
+
+/* ── Panels ── */
+.league-panel         { display: none; }
+.league-panel--active { display: block; }
+
+/* ── Stats grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-md);
+}
+
+@media (min-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1100px) {
+  .stats-grid { grid-template-columns: 5fr 3fr 3fr; }
+}
+
+/* ── Stat card ── */
+.stat-card {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: var(--sp-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--gray-200);
+  transition:
+    box-shadow var(--t-base) var(--ease),
+    transform  var(--t-base) var(--ease);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+.stat-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--green-900);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-sm);
+  padding-bottom: var(--sp-xs);
+  border-bottom: 1px solid var(--gray-200);
+  position: relative;
+}
+
+.stat-card__title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* ── Tabela de classificação ── */
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.standings-table th {
+  text-align: left;
+  color: var(--gray-400);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.standings-table td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+}
+
+.standings-table tbody tr:last-child td { border-bottom: none; }
+.standings-table tbody tr:hover { background: var(--gray-50, #fafafa); }
+
+.td-pos   { color: var(--gray-400); font-weight: 700; text-align: center; width: 28px; font-size: var(--fs-xs); }
+.td-team  { font-weight: 600; color: var(--black); }
+.td-num   { text-align: center; color: var(--gray-400); font-size: var(--fs-xs); }
+.td-pts   { text-align: center; font-weight: 700; color: var(--green-700); }
+
+/* ── Lista de jogadores ── */
+.players-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.players-list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background var(--t-fast);
+}
+
+.players-list__item:last-child { border-bottom: none; }
+
+.players-list__rank {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  min-width: 22px;
+  text-align: center;
+  line-height: 1;
+}
+
+.players-list__rank--1     { color: var(--gold); }
+.players-list__rank--2     { color: #9e9e93; }
+.players-list__rank--3     { color: #c97a2e; }
+.players-list__rank--other { color: var(--gray-400); font-size: var(--fs-sm); font-family: var(--font-body); }
+
+.players-list__info  { flex: 1; min-width: 0; }
+
+.players-list__name {
+  display: block;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.players-list__club {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--gray-400);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.players-list__value {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--green-700);
+  letter-spacing: 0.02em;
+  min-width: 30px;
+  text-align: right;
+}

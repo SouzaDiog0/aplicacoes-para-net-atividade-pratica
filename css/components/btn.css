@@ -1,0 +1,88 @@
+/* ================================================================
+   COMPONENTE: BUTTON
+   Variantes: .btn--primary | .btn--outline | .btn--ghost | .btn--gold
+   ================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition:
+    background    var(--t-fast),
+    color         var(--t-fast),
+    border-color  var(--t-fast),
+    box-shadow    var(--t-base) var(--ease),
+    transform     var(--t-base) var(--ease);
+  line-height: 1.4;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:hover  { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); opacity: .92; }
+
+.btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ── Primary ── */
+.btn--primary {
+  background: var(--green-700);
+  color: var(--white);
+  border-color: var(--green-700);
+}
+
+.btn--primary:hover {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  box-shadow: 0 4px 16px rgba(26,110,46,.35);
+}
+
+/* ── Outline ── */
+.btn--outline {
+  background: transparent;
+  color: var(--green-700);
+  border-color: var(--green-700);
+}
+
+.btn--outline:hover {
+  background: var(--green-700);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(26,110,46,.25);
+}
+
+/* ── Ghost ── */
+.btn--ghost {
+  background: transparent;
+  color: var(--green-700);
+  border-color: transparent;
+}
+
+.btn--ghost:hover {
+  background: var(--green-100);
+  color: var(--green-900);
+}
+
+/* ── Gold ── */
+.btn--gold {
+  background: var(--gold);
+  color: var(--green-900);
+  border-color: var(--gold);
+}
+
+.btn--gold:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  box-shadow: 0 4px 16px rgba(245,197,24,.35);
+}

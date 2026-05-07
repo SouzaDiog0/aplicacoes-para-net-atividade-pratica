@@ -14,7 +14,7 @@
 <body>
 
   <!-- Cabeçalho -->
-  <header>
+  <header class="header">
     <div class="header-inner">
 
       <div class="header-brand">
@@ -34,9 +34,11 @@
       </label>
 
       <nav class="header-nav" aria-label="Menu principal">
-        <a href="#historia" onclick="document.getElementById('nav-toggle').checked=false">História</a>
-        <a href="#momentos" onclick="document.getElementById('nav-toggle').checked=false">Momentos</a>
-        <a href="#enquete"  onclick="document.getElementById('nav-toggle').checked=false">Enquete</a>
+        <a href="#historia"    onclick="document.getElementById('nav-toggle').checked=false">História</a>
+        <a href="#momentos"   onclick="document.getElementById('nav-toggle').checked=false">Momentos</a>
+        <a href="#competicoes" onclick="document.getElementById('nav-toggle').checked=false">Competições</a>
+        <a href="#estatisticas" onclick="document.getElementById('nav-toggle').checked=false">Estatísticas</a>
+        <a href="#enquete"     onclick="document.getElementById('nav-toggle').checked=false">Enquete</a>
       </nav>
 
       <!-- Botão dark/light mode -->
@@ -50,6 +52,47 @@
 
   <!-- Banner -->
   <div class="hero" aria-hidden="true">
+
+    <!-- Campo de futebol (SVG, puramente decorativo) -->
+    <svg class="hero-field" viewBox="0 0 105 68" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <!-- Listras de gramado (alternando bandas claras) -->
+      <rect x="0"  y="0" width="10.5" height="68" fill="rgba(255,255,255,.04)"/>
+      <rect x="21" y="0" width="10.5" height="68" fill="rgba(255,255,255,.04)"/>
+      <rect x="42" y="0" width="10.5" height="68" fill="rgba(255,255,255,.04)"/>
+      <rect x="63" y="0" width="10.5" height="68" fill="rgba(255,255,255,.04)"/>
+      <rect x="84" y="0" width="10.5" height="68" fill="rgba(255,255,255,.04)"/>
+      <!-- Marcações do campo -->
+      <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="0.5" stroke-linecap="round">
+        <!-- Contorno do campo -->
+        <rect x="2" y="2" width="101" height="64"/>
+        <!-- Linha do meio -->
+        <line x1="52.5" y1="2" x2="52.5" y2="66"/>
+        <!-- Área esquerda (16.5m × 40.32m) -->
+        <rect x="2" y="15" width="16.5" height="38"/>
+        <!-- Pequena área esquerda (5.5m × 18.32m) -->
+        <rect x="2" y="25.35" width="5.5" height="17.3"/>
+        <!-- Área direita -->
+        <rect x="86.5" y="15" width="16.5" height="38"/>
+        <!-- Pequena área direita -->
+        <rect x="97.5" y="25.35" width="5.5" height="17.3"/>
+        <!-- Círculo central (raio 9.15m) -->
+        <circle cx="52.5" cy="34" r="9.15"/>
+        <!-- Arco de pênalti esquerdo (fora da área) -->
+        <path d="M 18.5,26.69 A 9.15,9.15 0 0,1 18.5,41.31"/>
+        <!-- Arco de pênalti direito -->
+        <path d="M 86.5,26.69 A 9.15,9.15 0 0,0 86.5,41.31"/>
+        <!-- Escanteios (raio 2) -->
+        <path d="M 4,2 A 2,2 0 0,1 2,4"/>
+        <path d="M 101,2 A 2,2 0 0,0 103,4"/>
+        <path d="M 2,64 A 2,2 0 0,1 4,66"/>
+        <path d="M 103,64 A 2,2 0 0,0 101,66"/>
+      </g>
+      <!-- Pontos (centro, pênaltis) -->
+      <circle cx="52.5" cy="34" r="0.6" fill="rgba(255,255,255,.4)"/>
+      <circle cx="13"   cy="34" r="0.6" fill="rgba(255,255,255,.4)"/>
+      <circle cx="92"   cy="34" r="0.6" fill="rgba(255,255,255,.4)"/>
+    </svg>
+
     <div class="hero-text">
       <span class="hero-label">O jogo mais bonito do mundo</span>
       <strong>FUTEBOL É<br>PAIXÃO</strong>
@@ -58,10 +101,11 @@
   </div>
 
   <!-- Conteúdo principal -->
-  <main>
+  <main class="main">
 
     <!-- Sidebar - história -->
     <aside class="sidebar reveal" id="historia" aria-label="História do futebol">
+
       <div class="card">
         <h2>História do Futebol</h2>
         <p>
@@ -79,6 +123,31 @@
           </div>
         </div>
       </div>
+
+      <!-- Copa do Mundo 2026 -->
+      <div class="card sidebar-copa">
+        <p class="sidebar-copa__year">2026</p>
+        <h3 class="sidebar-copa__title">Copa do Mundo</h3>
+        <p class="sidebar-copa__host">EUA · Canadá · México</p>
+        <ul class="sidebar-copa__facts">
+          <li><strong>48</strong> seleções</li>
+          <li><strong>104</strong> jogos</li>
+          <li>11 jun — 19 jul 2026</li>
+        </ul>
+        <a href="#competicoes" class="btn btn--primary">Ver competições →</a>
+      </div>
+
+      <!-- Curiosidades -->
+      <div class="card">
+        <h3 class="sidebar-trivia__title">Você sabia?</h3>
+        <ul class="sidebar-trivia">
+          <li>Futebol moderno criado em <strong>1863</strong> na Inglaterra</li>
+          <li>Pelé marcou <strong>1.281</strong> gols na carreira</li>
+          <li>Brasil é o único país <strong>5×</strong> campeão mundial</li>
+          <li>Copa 2026 será a maior da história com <strong>48</strong> seleções</li>
+        </ul>
+      </div>
+
     </aside>
 
     <!-- Área de conteúdo -->
@@ -186,9 +255,7 @@
                   id="email"
                   name="email"
                   required
-                  placeholder="exemplo@gmail.com"
-                  pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com)$"
-                  title="Digite um email válido (@gmail.com ou @hotmail.com)"
+                  placeholder="exemplo@email.com"
                 >
               </div>
             </div>
@@ -199,7 +266,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="time">Time favorito</label>
-                <input type="text" id="time" name="time" placeholder="Ex: Flamengo" required>
+                <input type="text" id="time" name="time" placeholder="Ex: São Paulo" required>
               </div>
               <div class="form-group">
                 <label for="idade">Idade</label>
@@ -247,12 +314,366 @@
 
   </main>
 
-  <!-- Rodapé -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-brand">⚽ Linha de Passe</span>
-      <p>&copy; 2026 — Todos os direitos reservados</p>
+  <!-- Competições — grid de cards (Aula 09) -->
+  <section class="section" id="competicoes" aria-label="Competições em destaque">
+    <h2 class="section__title">Competições em Destaque</h2>
+    <div class="cards-grid">
+
+      <div class="card card--featured reveal">
+        <span class="card__badge">🏆 Em destaque</span>
+        <h3 class="card__title">Copa do Mundo 2026</h3>
+        <p class="card__body">O maior evento do futebol mundial acontece nos EUA, Canadá e México. 48 seleções disputam o título de campeão do mundo num torneio histórico.</p>
+        <a href="#" class="btn btn--primary">Saiba mais</a>
+      </div>
+
+      <div class="card reveal">
+        <span class="card__badge">🇧🇷 Nacional</span>
+        <h3 class="card__title">Brasileirão Série A</h3>
+        <p class="card__body">O campeonato nacional mais competitivo da América do Sul, com 20 clubes disputando 38 rodadas ao longo do ano.</p>
+        <a href="#" class="btn btn--outline">Ver tabela</a>
+      </div>
+
+      <div class="card reveal">
+        <span class="card__badge">⭐ Europa</span>
+        <h3 class="card__title">UEFA Champions League</h3>
+        <p class="card__body">A competição de clubes mais prestigiada do mundo, reunindo os melhores times europeus em busca do título máximo.</p>
+        <a href="#" class="btn btn--outline">Ver grupos</a>
+      </div>
+
+      <div class="card reveal">
+        <span class="card__badge">🌎 América do Sul</span>
+        <h3 class="card__title">Copa Libertadores</h3>
+        <p class="card__body">O torneio de clubes mais importante da América do Sul, com equipes de todo o continente disputando a glória continental.</p>
+        <a href="#" class="btn btn--ghost">Explorar</a>
+      </div>
+
     </div>
+  </section>
+
+  <!-- Estatísticas das Ligas -->
+  <section class="stats-section" id="estatisticas" aria-label="Estatísticas das principais ligas">
+    <div class="stats-section__inner">
+
+      <h2 class="stats-section__title">Estatísticas — Principais Ligas <small class="stats-season">Temporada 2023/24</small></h2>
+
+      <div class="league-tabs" role="tablist" aria-label="Selecionar liga">
+        <button class="league-tab league-tab--active" role="tab" aria-selected="true"  aria-controls="panel-premier"    data-tab="premier"><img src="https://flagcdn.com/w20/gb-eng.png" alt="" class="league-flag" aria-hidden="true"> Premier League</button>
+        <button class="league-tab"                   role="tab" aria-selected="false" aria-controls="panel-laliga"      data-tab="laliga"><img src="https://flagcdn.com/w20/es.png" alt="" class="league-flag" aria-hidden="true"> La Liga</button>
+        <button class="league-tab"                   role="tab" aria-selected="false" aria-controls="panel-bundesliga"  data-tab="bundesliga"><img src="https://flagcdn.com/w20/de.png" alt="" class="league-flag" aria-hidden="true"> Bundesliga</button>
+        <button class="league-tab"                   role="tab" aria-selected="false" aria-controls="panel-seriea"      data-tab="seriea"><img src="https://flagcdn.com/w20/it.png" alt="" class="league-flag" aria-hidden="true"> Serie A</button>
+        <button class="league-tab"                   role="tab" aria-selected="false" aria-controls="panel-ligue1"      data-tab="ligue1"><img src="https://flagcdn.com/w20/fr.png" alt="" class="league-flag" aria-hidden="true"> Ligue 1</button>
+        <button class="league-tab"                   role="tab" aria-selected="false" aria-controls="panel-brasileirao" data-tab="brasileirao"><img src="https://flagcdn.com/w20/br.png" alt="" class="league-flag" aria-hidden="true"> Brasileirão</button>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           PREMIER LEAGUE
+      ══════════════════════════════════════════ -->
+      <div class="league-panel league-panel--active" id="panel-premier" role="tabpanel">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🏆 Classificação</h3>
+            <table class="standings-table">
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>Pts</th></tr></thead>
+              <tbody>
+                <tr><td class="td-pos">1</td><td class="td-team">Manchester City</td><td class="td-num">38</td><td class="td-num">28</td><td class="td-pts">91</td></tr>
+                <tr><td class="td-pos">2</td><td class="td-team">Arsenal</td><td class="td-num">38</td><td class="td-num">28</td><td class="td-pts">89</td></tr>
+                <tr><td class="td-pos">3</td><td class="td-team">Liverpool</td><td class="td-num">38</td><td class="td-num">24</td><td class="td-pts">82</td></tr>
+                <tr><td class="td-pos">4</td><td class="td-team">Aston Villa</td><td class="td-num">38</td><td class="td-num">20</td><td class="td-pts">68</td></tr>
+                <tr><td class="td-pos">5</td><td class="td-team">Tottenham</td><td class="td-num">38</td><td class="td-num">20</td><td class="td-pts">66</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">⚽ Artilheiros</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">E. Haaland</strong><span class="players-list__club">Manchester City</span></div><span class="players-list__value">27</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">C. Palmer</strong><span class="players-list__club">Chelsea</span></div><span class="players-list__value">22</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">A. Isak</strong><span class="players-list__club">Newcastle</span></div><span class="players-list__value">21</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">J. Bowen</strong><span class="players-list__club">West Ham</span></div><span class="players-list__value">20</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">O. Watkins</strong><span class="players-list__club">Aston Villa</span></div><span class="players-list__value">19</span></li>
+            </ol>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🎯 Assistências</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">O. Watkins</strong><span class="players-list__club">Aston Villa</span></div><span class="players-list__value">13</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">K. De Bruyne</strong><span class="players-list__club">Manchester City</span></div><span class="players-list__value">10</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">B. Saka</strong><span class="players-list__club">Arsenal</span></div><span class="players-list__value">9</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">M. Salah</strong><span class="players-list__club">Liverpool</span></div><span class="players-list__value">9</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">T. Alexander-Arnold</strong><span class="players-list__club">Liverpool</span></div><span class="players-list__value">8</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           LA LIGA
+      ══════════════════════════════════════════ -->
+      <div class="league-panel" id="panel-laliga" role="tabpanel">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🏆 Classificação</h3>
+            <table class="standings-table">
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>Pts</th></tr></thead>
+              <tbody>
+                <tr><td class="td-pos">1</td><td class="td-team">Real Madrid</td><td class="td-num">38</td><td class="td-num">29</td><td class="td-pts">95</td></tr>
+                <tr><td class="td-pos">2</td><td class="td-team">Barcelona</td><td class="td-num">38</td><td class="td-num">26</td><td class="td-pts">85</td></tr>
+                <tr><td class="td-pos">3</td><td class="td-team">Girona</td><td class="td-num">38</td><td class="td-num">25</td><td class="td-pts">81</td></tr>
+                <tr><td class="td-pos">4</td><td class="td-team">Atlético Madrid</td><td class="td-num">38</td><td class="td-num">22</td><td class="td-pts">76</td></tr>
+                <tr><td class="td-pos">5</td><td class="td-team">Athletic Bilbao</td><td class="td-num">38</td><td class="td-num">20</td><td class="td-pts">68</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">⚽ Artilheiros</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">A. Dovbyk</strong><span class="players-list__club">Girona</span></div><span class="players-list__value">24</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">J. Bellingham</strong><span class="players-list__club">Real Madrid</span></div><span class="players-list__value">19</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">R. Lewandowski</strong><span class="players-list__club">Barcelona</span></div><span class="players-list__value">19</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">Á. Morata</strong><span class="players-list__club">Atlético Madrid</span></div><span class="players-list__value">16</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">Vinicius Jr.</strong><span class="players-list__club">Real Madrid</span></div><span class="players-list__value">15</span></li>
+            </ol>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🎯 Assistências</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">Vinicius Jr.</strong><span class="players-list__club">Real Madrid</span></div><span class="players-list__value">10</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">Raphinha</strong><span class="players-list__club">Barcelona</span></div><span class="players-list__value">9</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">J. Bellingham</strong><span class="players-list__club">Real Madrid</span></div><span class="players-list__value">8</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">D. Carvajal</strong><span class="players-list__club">Real Madrid</span></div><span class="players-list__value">7</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">L. Yamal</strong><span class="players-list__club">Barcelona</span></div><span class="players-list__value">7</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           BUNDESLIGA
+      ══════════════════════════════════════════ -->
+      <div class="league-panel" id="panel-bundesliga" role="tabpanel">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🏆 Classificação</h3>
+            <table class="standings-table">
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>Pts</th></tr></thead>
+              <tbody>
+                <tr><td class="td-pos">1</td><td class="td-team">Bayer Leverkusen</td><td class="td-num">34</td><td class="td-num">28</td><td class="td-pts">90</td></tr>
+                <tr><td class="td-pos">2</td><td class="td-team">Bayern München</td><td class="td-num">34</td><td class="td-num">22</td><td class="td-pts">72</td></tr>
+                <tr><td class="td-pos">3</td><td class="td-team">VfB Stuttgart</td><td class="td-num">34</td><td class="td-num">21</td><td class="td-pts">68</td></tr>
+                <tr><td class="td-pos">4</td><td class="td-team">RB Leipzig</td><td class="td-num">34</td><td class="td-num">19</td><td class="td-pts">65</td></tr>
+                <tr><td class="td-pos">5</td><td class="td-team">Borussia Dortmund</td><td class="td-num">34</td><td class="td-num">18</td><td class="td-pts">63</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">⚽ Artilheiros</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">H. Kane</strong><span class="players-list__club">Bayern München</span></div><span class="players-list__value">36</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">S. Guirassy</strong><span class="players-list__club">VfB Stuttgart</span></div><span class="players-list__value">28</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">L. Openda</strong><span class="players-list__club">RB Leipzig</span></div><span class="players-list__value">24</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">F. Wirtz</strong><span class="players-list__club">Bayer Leverkusen</span></div><span class="players-list__value">18</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">J. Musiala</strong><span class="players-list__club">Bayern München</span></div><span class="players-list__value">12</span></li>
+            </ol>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🎯 Assistências</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">G. Xhaka</strong><span class="players-list__club">Bayer Leverkusen</span></div><span class="players-list__value">13</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">F. Wirtz</strong><span class="players-list__club">Bayer Leverkusen</span></div><span class="players-list__value">11</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">J. Musiala</strong><span class="players-list__club">Bayern München</span></div><span class="players-list__value">10</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">J. Kimmich</strong><span class="players-list__club">Bayern München</span></div><span class="players-list__value">9</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">H. Kane</strong><span class="players-list__club">Bayern München</span></div><span class="players-list__value">9</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           SERIE A
+      ══════════════════════════════════════════ -->
+      <div class="league-panel" id="panel-seriea" role="tabpanel">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🏆 Classificação</h3>
+            <table class="standings-table">
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>Pts</th></tr></thead>
+              <tbody>
+                <tr><td class="td-pos">1</td><td class="td-team">Inter Milan</td><td class="td-num">38</td><td class="td-num">29</td><td class="td-pts">94</td></tr>
+                <tr><td class="td-pos">2</td><td class="td-team">AC Milan</td><td class="td-num">38</td><td class="td-num">23</td><td class="td-pts">75</td></tr>
+                <tr><td class="td-pos">3</td><td class="td-team">Juventus</td><td class="td-num">38</td><td class="td-num">22</td><td class="td-pts">71</td></tr>
+                <tr><td class="td-pos">4</td><td class="td-team">Bologna</td><td class="td-num">38</td><td class="td-num">19</td><td class="td-pts">68</td></tr>
+                <tr><td class="td-pos">5</td><td class="td-team">Atalanta</td><td class="td-num">38</td><td class="td-num">18</td><td class="td-pts">63</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">⚽ Artilheiros</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">L. Martínez</strong><span class="players-list__club">Inter Milan</span></div><span class="players-list__value">24</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">A. Lookman</strong><span class="players-list__club">Atalanta</span></div><span class="players-list__value">17</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">D. Vlahovic</strong><span class="players-list__club">Juventus</span></div><span class="players-list__value">16</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">M. Thuram</strong><span class="players-list__club">Inter Milan</span></div><span class="players-list__value">13</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">R. Lukaku</strong><span class="players-list__club">Roma</span></div><span class="players-list__value">13</span></li>
+            </ol>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🎯 Assistências</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">F. Dimarco</strong><span class="players-list__club">Inter Milan</span></div><span class="players-list__value">9</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">N. Barella</strong><span class="players-list__club">Inter Milan</span></div><span class="players-list__value">8</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">Kvaratskhelia</strong><span class="players-list__club">Napoli</span></div><span class="players-list__value">8</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">A. Lookman</strong><span class="players-list__club">Atalanta</span></div><span class="players-list__value">7</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">M. Politano</strong><span class="players-list__club">Napoli</span></div><span class="players-list__value">7</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           LIGUE 1
+      ══════════════════════════════════════════ -->
+      <div class="league-panel" id="panel-ligue1" role="tabpanel">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🏆 Classificação</h3>
+            <table class="standings-table">
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>Pts</th></tr></thead>
+              <tbody>
+                <tr><td class="td-pos">1</td><td class="td-team">Paris Saint-Germain</td><td class="td-num">34</td><td class="td-num">26</td><td class="td-pts">82</td></tr>
+                <tr><td class="td-pos">2</td><td class="td-team">AS Monaco</td><td class="td-num">34</td><td class="td-num">21</td><td class="td-pts">70</td></tr>
+                <tr><td class="td-pos">3</td><td class="td-team">Stade Brestois</td><td class="td-num">34</td><td class="td-num">19</td><td class="td-pts">65</td></tr>
+                <tr><td class="td-pos">4</td><td class="td-team">Lille OSC</td><td class="td-num">34</td><td class="td-num">18</td><td class="td-pts">61</td></tr>
+                <tr><td class="td-pos">5</td><td class="td-team">OGC Nice</td><td class="td-num">34</td><td class="td-num">17</td><td class="td-pts">58</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">⚽ Artilheiros</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">K. Mbappé</strong><span class="players-list__club">Paris Saint-Germain</span></div><span class="players-list__value">27</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">J. David</strong><span class="players-list__club">Lille OSC</span></div><span class="players-list__value">19</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">B. Barcola</strong><span class="players-list__club">Paris Saint-Germain</span></div><span class="players-list__value">14</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">F. Balogun</strong><span class="players-list__club">AS Monaco</span></div><span class="players-list__value">12</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">O. Dembélé</strong><span class="players-list__club">Paris Saint-Germain</span></div><span class="players-list__value">11</span></li>
+            </ol>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🎯 Assistências</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">O. Dembélé</strong><span class="players-list__club">Paris Saint-Germain</span></div><span class="players-list__value">13</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">B. Barcola</strong><span class="players-list__club">Paris Saint-Germain</span></div><span class="players-list__value">9</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">J. David</strong><span class="players-list__club">Lille OSC</span></div><span class="players-list__value">7</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">Vitinha</strong><span class="players-list__club">Paris Saint-Germain</span></div><span class="players-list__value">6</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">D. Doué</strong><span class="players-list__club">Stade Rennais</span></div><span class="players-list__value">6</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           BRASILEIRÃO
+      ══════════════════════════════════════════ -->
+      <div class="league-panel" id="panel-brasileirao" role="tabpanel">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🏆 Classificação</h3>
+            <table class="standings-table">
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>Pts</th></tr></thead>
+              <tbody>
+                <tr><td class="td-pos">1</td><td class="td-team">Botafogo</td><td class="td-num">38</td><td class="td-num">23</td><td class="td-pts">76</td></tr>
+                <tr><td class="td-pos">2</td><td class="td-team">Palmeiras</td><td class="td-num">38</td><td class="td-num">22</td><td class="td-pts">72</td></tr>
+                <tr><td class="td-pos">3</td><td class="td-team">Fortaleza</td><td class="td-num">38</td><td class="td-num">21</td><td class="td-pts">68</td></tr>
+                <tr><td class="td-pos">4</td><td class="td-team">Flamengo</td><td class="td-num">38</td><td class="td-num">19</td><td class="td-pts">65</td></tr>
+                <tr><td class="td-pos">5</td><td class="td-team">Internacional</td><td class="td-num">38</td><td class="td-num">18</td><td class="td-pts">62</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">⚽ Artilheiros</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">Yuri Alberto</strong><span class="players-list__club">Corinthians</span></div><span class="players-list__value">21</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">G. Vegetti</strong><span class="players-list__club">Vasco</span></div><span class="players-list__value">20</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">Alerrandro</strong><span class="players-list__club">Fortaleza</span></div><span class="players-list__value">16</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">Tiquinho Soares</strong><span class="players-list__club">Botafogo</span></div><span class="players-list__value">15</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">F. López</strong><span class="players-list__club">Athletico-PR</span></div><span class="players-list__value">14</span></li>
+            </ol>
+          </div>
+
+          <div class="stat-card">
+            <h3 class="stat-card__title">🎯 Assistências</h3>
+            <ol class="players-list">
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--1">1</span><div class="players-list__info"><strong class="players-list__name">M. Pereira</strong><span class="players-list__club">Athletico-PR</span></div><span class="players-list__value">10</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--2">2</span><div class="players-list__info"><strong class="players-list__name">Luiz Araújo</strong><span class="players-list__club">Flamengo</span></div><span class="players-list__value">8</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--3">3</span><div class="players-list__info"><strong class="players-list__name">Cuiabano</strong><span class="players-list__club">Botafogo</span></div><span class="players-list__value">8</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">4</span><div class="players-list__info"><strong class="players-list__name">Arrascaeta</strong><span class="players-list__club">Flamengo</span></div><span class="players-list__value">7</span></li>
+              <li class="players-list__item"><span class="players-list__rank players-list__rank--other">5</span><div class="players-list__info"><strong class="players-list__name">R. Veiga</strong><span class="players-list__club">Palmeiras</span></div><span class="players-list__value">6</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <span class="footer-brand">⚽ Linha de Passe</span>
+        <p class="footer-desc">Site sobre futebol com player de vídeo, formulário interativo e dark mode. Projeto da disciplina de Aplicações para Internet.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col__title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="#historia">História</a></li>
+          <li><a href="#momentos">Momentos</a></li>
+          <li><a href="#competicoes">Competições</a></li>
+          <li><a href="#estatisticas">Estatísticas</a></li>
+          <li><a href="#enquete">Enquete</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col__title">Projeto</h3>
+        <ul class="footer-links">
+          <li>Aplicações para Internet</li>
+          <li>HTML5 / CSS3 / JS</li>
+          <li>Prof. Jeofton Costa</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Linha de Passe — Todos os direitos reservados</p>
+    </div>
+
   </footer>
 
 <script src="js/main.js"></script>

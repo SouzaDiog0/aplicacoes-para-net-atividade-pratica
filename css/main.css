@@ -12,14 +12,20 @@
 
 /* ── 5. Components ── */
 @import 'components/header.css';
+@import 'components/navbar.css';
 @import 'components/hero.css';
 @import 'components/card.css';
+@import 'components/btn.css';
 @import 'components/content.css';
 @import 'components/sidebar.css';
 @import 'components/media.css';
 @import 'components/form.css';
+@import 'components/stats.css';
 @import 'components/footer.css';
 @import 'components/theme-toggle.css';
 
-/* ── 6. Utilities ── */
+/* ── 6. Themes ── */
+@import 'themes/dark.css';
+
+/* ── 7. Utilities ── */
 @import 'utilities/utilities.css';

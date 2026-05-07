@@ -1,14 +1,66 @@
+/* ── Base ── */
 .card {
   background: var(--white);
   border-radius: var(--r-lg);
   padding: var(--sp-lg);
   box-shadow: var(--shadow-card);
-  transition: box-shadow .25s;
   border: 1px solid var(--gray-200);
+  transition:
+    box-shadow var(--t-base) var(--ease),
+    transform   var(--t-base) var(--ease),
+    border-color var(--t-fast);
+  will-change: transform;
 }
 
-.card:hover { box-shadow: var(--shadow-hover); }
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  border-color: var(--gray-300);
+}
+
+/* Sidebar: sem lift (coluna sticky) */
+.sidebar .card:hover { transform: none; }
 
 @media (min-width: 1024px) {
   .card { padding: var(--sp-xl); }
+}
+
+/* ── Destaque ── */
+.card--featured {
+  border-left: 3px solid var(--gold);
+  background: linear-gradient(140deg, var(--white) 0%, var(--green-100) 100%);
+}
+
+/* ── Cards do grid ── */
+.cards-grid .card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card__badge {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--green-700);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--sp-xs);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--green-900);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--sp-sm);
+  line-height: 1.15;
+}
+
+.card__body {
+  font-size: var(--fs-sm);
+  color: var(--gray-500);
+  line-height: 1.75;
+  margin-bottom: var(--sp-md);
+  flex: 1;
 }

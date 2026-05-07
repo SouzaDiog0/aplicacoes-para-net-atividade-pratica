@@ -266,9 +266,3 @@
 .vp-speed:focus        { outline: none; border-color: var(--gold); }
 .vp-speed option       { background: #1a1a1a; color: #fff; }
 
-/* ── Dark mode: ajuste do audio-wrapper ── */
-[data-theme="dark"] .audio-wrapper { background: #1a1a1a; }
-
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .audio-wrapper { background: #1a1a1a; }
-}

@@ -173,13 +173,35 @@
    ================================================================ */
 const progressBar = document.createElement('div');
 progressBar.className = 'progress-bar';
-document.querySelector('header').appendChild(progressBar);
+document.querySelector('.header').appendChild(progressBar);
 
 window.addEventListener('scroll', () => {
   const scrollTop    = document.documentElement.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   progressBar.style.width = (scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0) + '%';
 }, { passive: true });
+
+/* ================================================================
+   HEADER SCROLLED — reduz sombra ao rolar 80px (Aula 09 extra)
+   ================================================================ */
+const headerEl = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  headerEl.classList.toggle('header--scrolled', window.scrollY > 80);
+}, { passive: true });
+
+/* ================================================================
+   ESCAPE — fecha o menu hamburger (Aula 09 checkpoint)
+   ================================================================ */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('nav-toggle').checked = false;
+});
+
+/* ================================================================
+   ANO AUTOMÁTICO NO FOOTER (Aula 09 checkpoint)
+   ================================================================ */
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ── Scroll-reveal ── */
 const revealObserver = new IntersectionObserver((entries) => {
@@ -255,7 +277,11 @@ function showToast(message, type = 'success') {
   }, 3500);
 }
 
-/* ── Formulário: validação e estado de sucesso ── */
+/* ── Formulário: validação e estado de sucesso ──
+   Projeto acadêmico/demonstrativo — os dados são apenas validados
+   no cliente e descartados. Em produção, substituir e.preventDefault()
+   por um fetch() para o endpoint de backend adequado.
+   ── */
 document.querySelector('form').addEventListener('submit', e => {
   e.preventDefault();
 
@@ -292,4 +318,21 @@ btn.addEventListener('click', () => {
   const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
+});
+
+/* ================================================================
+   ABAS DE LIGAS — ESTATÍSTICAS
+   ================================================================ */
+const leagueTabs   = document.querySelectorAll('.league-tab');
+const leaguePanels = document.querySelectorAll('.league-panel');
+
+leagueTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    leagueTabs.forEach(t => { t.classList.remove('league-tab--active'); t.setAttribute('aria-selected', 'false'); });
+    leaguePanels.forEach(p => p.classList.remove('league-panel--active'));
+
+    tab.classList.add('league-tab--active');
+    tab.setAttribute('aria-selected', 'true');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('league-panel--active');
+  });
 });
