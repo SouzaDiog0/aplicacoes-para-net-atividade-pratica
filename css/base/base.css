@@ -6,18 +6,22 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--fs-base);
-  line-height: 1.65;
-  background-color: var(--off-white);
-  color: var(--gray-700);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  background-color: var(--color-bg);
+  color: var(--color-muted);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: rgba(245,197,24,.22);
+  background: var(--color-accent-soft);
   color: inherit;
 }
 
 img, video, iframe, audio { max-width: 100%; display: block; }
 video { height: auto; }
+
+
+
+

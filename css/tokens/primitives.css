@@ -1,0 +1,28 @@
+/* ================================================================
+   TOKENS PRIMITIVOS — Camada 1
+   Convenção: --_[cor]-[variante]
+   Regra: estes tokens NUNCA são usados diretamente nos componentes.
+   Apenas semantic.css pode referenciá-los.
+   ================================================================ */
+:root {
+  --_green: #1a6e2e;
+  --_green-hover: #22883a;
+  --_green-dark: #0b3d1e;
+  --_green-soft: #eaf6ee;
+  --_gold: #f5c518;
+  --_gold-dark: #c9a012;
+  --_blue: #1e40af;
+  --_red: #b91c1c;
+
+  --_white: #ffffff;
+  --_gray-50: #fafafa;
+  --_gray-100: #f6f7f9;
+  --_gray-200: #e2e4e8;
+  --_gray-600: #6b7280;
+  --_gray-950: #0d0f12;
+
+  --_dark-bg: #0f1117;
+  --_dark-surface: #1a1d24;
+  --_dark-border: #2e3340;
+  --_dark-text: #f0f4fc;
+}

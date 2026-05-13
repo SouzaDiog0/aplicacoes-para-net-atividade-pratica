@@ -1,63 +1,63 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-md);
+  gap: var(--space-md);
 }
 
 @media (min-width: 768px) {
   .sidebar {
     position: sticky;
-    top: calc(70px + var(--sp-md));
+    top: calc(70px + var(--space-md));
   }
 }
 
 /* ── História card — título ── */
 .sidebar .card h2 {
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  color: var(--green-700);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
   letter-spacing: 0.05em;
-  margin-bottom: var(--sp-sm);
-  padding-bottom: var(--sp-xs);
-  border-bottom: 2px solid var(--gold);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .sidebar .card p {
-  color: var(--gray-500);
-  font-size: var(--fs-sm);
-  line-height: 1.75;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
 }
 
 /* ── Stat grid ── */
 .stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--sp-sm);
-  margin-top: var(--sp-md);
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 
 .stat {
-  background: var(--green-100);
-  border-radius: var(--r-md);
-  padding: var(--sp-sm);
+  background: var(--color-primary-soft);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
   text-align: center;
-  border: 1px solid rgba(26,110,46,.15);
+  border: 1px solid var(--color-border);
 }
 
 .stat-num {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  color: var(--green-700);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
   letter-spacing: 0.02em;
-  line-height: 1.1;
+  line-height: var(--leading-tight);
 }
 
 .stat-label {
   display: block;
-  font-size: var(--fs-xs);
-  color: var(--gray-400);
-  font-weight: 700;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  font-weight: var(--weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-top: 3px;
@@ -65,8 +65,8 @@
 
 /* ── Card Copa 2026 ── */
 .sidebar-copa {
-  background: var(--green-900);
-  border-color: rgba(255,255,255,.06);
+  background: var(--color-primary-dark);
+  border-color: var(--color-dark-border);
   position: relative;
   overflow: hidden;
 }
@@ -80,48 +80,48 @@
   width: 180px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(245,197,24,.08) 0%, transparent 70%);
-  border: 1px solid rgba(245,197,24,.07);
+  background: radial-gradient(circle, var(--color-accent-soft) 0%, transparent 70%);
+  border: 1px solid var(--color-accent-soft);
   pointer-events: none;
 }
 
 .sidebar-copa__year {
   font-family: var(--font-display);
-  font-size: 3.2rem;
-  color: var(--gold);
+  font-size: var(--text-title);
+  color: var(--color-accent);
   letter-spacing: 0.04em;
-  line-height: 1;
+  line-height: var(--leading-tight);
   margin: 0;
 }
 
 .sidebar-copa__title {
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  color: var(--white);
+  font-size: var(--text-xl);
+  color: var(--color-white);
   letter-spacing: 0.04em;
-  margin: var(--sp-xs) 0 0;
+  margin: var(--space-xs) 0 0;
 }
 
 .sidebar-copa__host {
-  font-size: var(--fs-xs);
-  color: rgba(255,255,255,.45);
+  font-size: var(--text-xs);
+  color: var(--color-on-dark);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: var(--sp-md);
+  margin-bottom: var(--space-md);
   margin-top: 2px;
 }
 
 .sidebar-copa__facts {
   list-style: none;
-  margin-bottom: var(--sp-md);
-  border-top: 1px solid rgba(255,255,255,.08);
+  margin-bottom: var(--space-md);
+  border-top: 1px solid var(--color-dark-border);
 }
 
 .sidebar-copa__facts li {
-  font-size: var(--fs-sm);
-  color: rgba(255,255,255,.65);
+  font-size: var(--text-sm);
+  color: var(--color-on-dark);
   padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid var(--color-dark-border);
   display: flex;
   align-items: baseline;
   gap: 0.4rem;
@@ -131,32 +131,32 @@
 
 .sidebar-copa__facts strong {
   font-family: var(--font-display);
-  font-size: var(--fs-lg);
-  color: var(--gold);
+  font-size: var(--text-base);
+  color: var(--color-accent);
 }
 
 /* ── Card Curiosidades ── */
 .sidebar-trivia__title {
   font-family: var(--font-display);
-  font-size: var(--fs-lg);
-  color: var(--green-900);
+  font-size: var(--text-base);
+  color: var(--color-primary-dark);
   letter-spacing: 0.05em;
-  margin-bottom: var(--sp-sm);
-  padding-bottom: var(--sp-xs);
-  border-bottom: 2px solid var(--gold);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .sidebar-trivia {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-xs);
+  gap: var(--space-xs);
 }
 
 .sidebar-trivia li {
-  font-size: var(--fs-sm);
-  color: var(--gray-500);
-  line-height: 1.55;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: var(--leading-normal);
   padding-left: 1.4rem;
   position: relative;
 }
@@ -165,16 +165,16 @@
   content: '⚽';
   position: absolute;
   left: 0;
-  font-size: 0.55rem;
+  font-size: var(--text-xs);
   top: 0.35rem;
 }
 
 .device-preview {
   display: block;
-  margin-top: var(--sp-md);
-  border-radius: var(--r-md);
+  margin-top: var(--space-md);
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow);
 }
 
 .device-preview img {
@@ -182,3 +182,7 @@
   height: auto;
   display: block;
 }
+
+
+
+

@@ -1,0 +1,59 @@
+/* ================================================================
+   TOKENS SEMÂNTICOS — Camada 2
+   Convenção: --[categoria]-[propriedade]-[variante]
+   Ex: --color-primary, --color-primary-dark, --color-text
+   Regra: componentes SEMPRE referenciam estes tokens, nunca os primitivos.
+   Dark mode: basta sobrescrever os tokens semânticos abaixo — nenhum
+   componente precisa ser editado para trocar de tema.
+   ================================================================ */
+:root {
+  /* Cores principais */
+  --color-primary: var(--_green);
+  --color-primary-dark: var(--_green-dark);
+  --color-primary-soft: var(--_green-soft);
+  --color-accent: var(--_gold);
+  --color-accent-soft: rgba(245, 197, 24, .18);
+  --color-info: var(--_blue);
+  --color-danger: var(--_red);
+
+  /* Texto e fundos */
+  --color-text: var(--_gray-950);
+  --color-muted: var(--_gray-600);
+  --color-white: var(--_white);
+  --color-bg: var(--_gray-100);
+  --color-surface: var(--_white);
+  --color-border: var(--_gray-200);
+
+  /* Areas escuras */
+  --color-header: var(--_green-dark);
+  --color-on-dark: rgba(255, 255, 255, .85);
+  --color-dark-border: rgba(255, 255, 255, .08);
+  --overlay-dark: rgba(0, 0, 0, .65);
+  --color-control: rgba(255, 255, 255, .14);
+
+  /* Formas e efeitos */
+  --radius: 8px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, .10);
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 180ms;
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--_dark-bg);
+  --color-surface: var(--_dark-surface);
+  --color-border: var(--_dark-border);
+  --color-text: var(--_dark-text);
+  --color-muted: #a0a8b8;
+  --color-primary-soft: rgba(45, 158, 80, .12);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --color-bg: var(--_dark-bg);
+    --color-surface: var(--_dark-surface);
+    --color-border: var(--_dark-border);
+    --color-text: var(--_dark-text);
+    --color-muted: #a0a8b8;
+    --color-primary-soft: rgba(45, 158, 80, .12);
+  }
+}

@@ -1,34 +1,34 @@
 /* ── Base ── */
 .card {
-  background: var(--white);
-  border-radius: var(--r-lg);
-  padding: var(--sp-lg);
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--gray-200);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
   transition:
-    box-shadow var(--t-base) var(--ease),
-    transform   var(--t-base) var(--ease),
-    border-color var(--t-fast);
+    box-shadow var(--duration) var(--ease-standard),
+    transform   var(--duration) var(--ease-standard),
+    border-color var(--duration);
   will-change: transform;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow);
   transform: translateY(-2px);
-  border-color: var(--gray-300);
+  border-color: var(--color-border);
 }
 
 /* Sidebar: sem lift (coluna sticky) */
 .sidebar .card:hover { transform: none; }
 
 @media (min-width: 1024px) {
-  .card { padding: var(--sp-xl); }
+  .card { padding: var(--space-xl); }
 }
 
 /* ── Destaque ── */
 .card--featured {
-  border-left: 3px solid var(--gold);
-  background: linear-gradient(140deg, var(--white) 0%, var(--green-100) 100%);
+  border-left: 3px solid var(--color-accent);
+  background: linear-gradient(140deg, var(--color-surface) 0%, var(--color-primary-soft) 100%);
 }
 
 /* ── Cards do grid ── */
@@ -40,27 +40,31 @@
 
 .card__badge {
   display: inline-block;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  color: var(--green-700);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--sp-xs);
+  margin-bottom: var(--space-xs);
 }
 
 .card__title {
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  color: var(--green-900);
+  font-size: var(--text-xl);
+  color: var(--color-primary-dark);
   letter-spacing: 0.03em;
-  margin-bottom: var(--sp-sm);
-  line-height: 1.15;
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-tight);
 }
 
 .card__body {
-  font-size: var(--fs-sm);
-  color: var(--gray-500);
-  line-height: 1.75;
-  margin-bottom: var(--sp-md);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-md);
   flex: 1;
 }
+
+
+
+

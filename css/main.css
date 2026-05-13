@@ -1,16 +1,19 @@
-/* ── 1. Settings ── */
-@import 'settings/variable.css';
+/* 1. Design Tokens */
+@import 'tokens/primitives.css';
+@import 'tokens/semantic.css';
+@import 'tokens/spacing.css';
+@import 'tokens/typography.css';
 
-/* ── 2. Tools ── */
+/* 2. Tools */
 @import 'tools/reset.css';
 
-/* ── 3. Base ── */
+/* 3. Base */
 @import 'base/base.css';
 
-/* ── 4. Layout ── */
+/* 4. Layout */
 @import 'layout/layout.css';
 
-/* ── 5. Components ── */
+/* 5. Components */
 @import 'components/header.css';
 @import 'components/navbar.css';
 @import 'components/hero.css';
@@ -24,8 +27,9 @@
 @import 'components/footer.css';
 @import 'components/theme-toggle.css';
 
-/* ── 6. Themes ── */
-@import 'themes/dark.css';
-
-/* ── 7. Utilities ── */
+/* 6. Utilities */
 @import 'utilities/utilities.css';
+
+
+
+

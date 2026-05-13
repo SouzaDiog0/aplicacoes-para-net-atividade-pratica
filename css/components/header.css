@@ -1,19 +1,23 @@
 /* ── Outer container ── */
 .header {
-  background: var(--green-900);
+  background: var(--color-header);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 0 rgba(255,255,255,.04), 0 2px 8px rgba(0,0,0,.25);
+  box-shadow: var(--shadow);
   transition:
-    box-shadow  var(--t-slow) var(--ease),
-    background  var(--t-slow) var(--ease);
+    box-shadow  var(--duration) var(--ease-standard),
+    background  var(--duration) var(--ease-standard);
 }
 
 /* Aplicado via JS quando window.scrollY > 80px */
 .header--scrolled {
-  background: rgba(11,61,30,.96);
+  background: var(--color-header);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(255,255,255,.05), 0 4px 24px rgba(0,0,0,.45);
+  box-shadow: var(--shadow);
 }
+
+
+
+

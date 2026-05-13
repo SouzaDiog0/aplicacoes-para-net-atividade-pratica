@@ -1,0 +1,23 @@
+/* ================================================================
+   TOKENS DE TIPOGRAFIA — Camada 2
+   Convenção: --font-[família], --text-[tamanho], --weight-[peso], --leading-[altura]
+   Tamanhos fluidos via clamp() para escalas responsivas sem media queries.
+   ================================================================ */
+:root {
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-xl: clamp(1.25rem, 3vw, 1.875rem);
+  --text-title: clamp(1.75rem, 5vw, 3rem);
+  --text-hero: clamp(4.5rem, 14vw, 11rem);
+
+  --weight-normal: 400;
+  --weight-bold: 700;
+
+  --leading-tight: 1.1;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+}
