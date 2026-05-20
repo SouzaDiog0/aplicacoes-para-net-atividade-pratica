@@ -7,7 +7,7 @@
   --font-display: 'Bebas Neue', Impact, sans-serif;
   --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
 
-  --text-xs: 0.75rem;
+  --text-xs: 0.875rem;
   --text-sm: 0.8125rem;
   --text-base: 1rem;
   --text-xl: clamp(1.25rem, 3vw, 1.875rem);

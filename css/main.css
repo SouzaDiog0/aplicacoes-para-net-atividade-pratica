@@ -2,45 +2,33 @@
 @layer tokens, tools, base, layout, components, utilities;
 
 /* 1. Design Tokens */
-@layer tokens {
-  @import 'tokens/primitives.css';
-  @import 'tokens/semantic.css';
-  @import 'tokens/spacing.css';
-  @import 'tokens/typography.css';
-}
+@import 'tokens/primitives.css' layer(tokens);
+@import 'tokens/semantic.css'   layer(tokens);
+@import 'tokens/spacing.css'    layer(tokens);
+@import 'tokens/typography.css' layer(tokens);
 
 /* 2. Tools */
-@layer tools {
-  @import 'tools/reset.css';
-}
+@import 'tools/reset.css' layer(tools);
 
 /* 3. Base */
-@layer base {
-  @import 'base/base.css';
-}
+@import 'base/base.css' layer(base);
 
 /* 4. Layout */
-@layer layout {
-  @import 'layout/layout.css';
-}
+@import 'layout/layout.css' layer(layout);
 
 /* 5. Components */
-@layer components {
-  @import 'components/header.css';
-  @import 'components/navbar.css';
-  @import 'components/hero.css';
-  @import 'components/card.css';
-  @import 'components/btn.css';
-  @import 'components/content.css';
-  @import 'components/sidebar.css';
-  @import 'components/media.css';
-  @import 'components/form.css';
-  @import 'components/stats.css';
-  @import 'components/footer.css';
-  @import 'components/theme-toggle.css';
-}
+@import 'components/header.css'       layer(components);
+@import 'components/navbar.css'       layer(components);
+@import 'components/hero.css'         layer(components);
+@import 'components/card.css'         layer(components);
+@import 'components/btn.css'          layer(components);
+@import 'components/content.css'      layer(components);
+@import 'components/sidebar.css'      layer(components);
+@import 'components/media.css'        layer(components);
+@import 'components/form.css'         layer(components);
+@import 'components/stats.css'        layer(components);
+@import 'components/footer.css'       layer(components);
+@import 'components/theme-toggle.css' layer(components);
 
 /* 6. Utilities */
-@layer utilities {
-  @import 'utilities/utilities.css';
-}
+@import 'utilities/utilities.css' layer(utilities);
