@@ -1,4 +1,5 @@
 html {
+  font-size: clamp(16px, 1.1vw, 20px); /* escala acima de ~1455px — legibilidade em projetor */
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: 76px;
@@ -22,6 +23,11 @@ body {
 img, video, iframe, audio { max-width: 100%; display: block; }
 video { height: auto; }
 
+/* ── Navegação por teclado (Demanda 2) ── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
 
-
-
+:focus:not(:focus-visible) { outline: none; }

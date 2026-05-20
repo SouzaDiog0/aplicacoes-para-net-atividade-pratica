@@ -1,35 +1,46 @@
+/* ── Cascade Layer order (precedência explícita) ── */
+@layer tokens, tools, base, layout, components, utilities;
+
 /* 1. Design Tokens */
-@import 'tokens/primitives.css';
-@import 'tokens/semantic.css';
-@import 'tokens/spacing.css';
-@import 'tokens/typography.css';
+@layer tokens {
+  @import 'tokens/primitives.css';
+  @import 'tokens/semantic.css';
+  @import 'tokens/spacing.css';
+  @import 'tokens/typography.css';
+}
 
 /* 2. Tools */
-@import 'tools/reset.css';
+@layer tools {
+  @import 'tools/reset.css';
+}
 
 /* 3. Base */
-@import 'base/base.css';
+@layer base {
+  @import 'base/base.css';
+}
 
 /* 4. Layout */
-@import 'layout/layout.css';
+@layer layout {
+  @import 'layout/layout.css';
+}
 
 /* 5. Components */
-@import 'components/header.css';
-@import 'components/navbar.css';
-@import 'components/hero.css';
-@import 'components/card.css';
-@import 'components/btn.css';
-@import 'components/content.css';
-@import 'components/sidebar.css';
-@import 'components/media.css';
-@import 'components/form.css';
-@import 'components/stats.css';
-@import 'components/footer.css';
-@import 'components/theme-toggle.css';
+@layer components {
+  @import 'components/header.css';
+  @import 'components/navbar.css';
+  @import 'components/hero.css';
+  @import 'components/card.css';
+  @import 'components/btn.css';
+  @import 'components/content.css';
+  @import 'components/sidebar.css';
+  @import 'components/media.css';
+  @import 'components/form.css';
+  @import 'components/stats.css';
+  @import 'components/footer.css';
+  @import 'components/theme-toggle.css';
+}
 
 /* 6. Utilities */
-@import 'utilities/utilities.css';
-
-
-
-
+@layer utilities {
+  @import 'utilities/utilities.css';
+}

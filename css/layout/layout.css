@@ -54,8 +54,10 @@
   .section { padding-inline: 0; }
 }
 
-/* ── Cards grid (Aula 09) — responsivo 1 › 2 › 3 colunas ── */
+/* ── Cards grid — container query habilitado ── */
 .cards-grid {
+  container-type: inline-size;
+  container-name: cards;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
@@ -69,7 +71,3 @@
   .cards-grid { grid-template-columns: repeat(3, 1fr); }
   .card--featured { grid-column: span 2; }
 }
-
-
-
-

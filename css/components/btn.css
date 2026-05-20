@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  min-height: 44px;
   padding: 0.6rem 1.5rem;
   border-radius: var(--radius);
   font-family: var(--font-body);
@@ -28,7 +29,10 @@
   user-select: none;
 }
 
-.btn:hover  { transform: translateY(-1px); }
+@media (hover: hover) {
+  .btn:hover  { transform: translateY(-1px); }
+}
+
 .btn:active { transform: translateY(0); opacity: .92; }
 
 .btn:focus-visible {
@@ -86,7 +90,3 @@
   border-color: var(--color-accent);
   box-shadow: var(--shadow);
 }
-
-
-
-
