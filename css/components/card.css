@@ -1,3 +1,9 @@
+/* ================================================================
+   COMPONENTE: CARD
+   Variantes: .card--featured
+   Filhos: .card__badge | .card__title | .card__body
+   ================================================================ */
+
 /* ── Base ── */
 .card {
   background: var(--color-surface);

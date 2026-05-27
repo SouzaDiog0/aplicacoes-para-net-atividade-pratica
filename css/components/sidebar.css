@@ -1,3 +1,8 @@
+/* ================================================================
+   COMPONENTE: SIDEBAR
+   Cards lateral: história, estatísticas, Copa 2026 e curiosidades.
+   ================================================================ */
+
 .sidebar {
   display: flex;
   flex-direction: column;

@@ -1,3 +1,8 @@
+/* ================================================================
+   COMPONENTE: THEME TOGGLE
+   Botão de alternância dark/light mode. Estado controlado via JS em data-theme.
+   ================================================================ */
+
 .theme-toggle {
   display: flex;
   align-items: center;

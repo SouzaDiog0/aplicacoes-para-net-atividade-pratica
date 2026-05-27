@@ -1,3 +1,8 @@
+/* ================================================================
+   COMPONENTE: HEADER
+   Sticky com efeito glass ao rolar. Contém brand + navbar + theme-toggle.
+   ================================================================ */
+
 /* ── Outer container ── */
 .header {
   background: var(--color-header);
